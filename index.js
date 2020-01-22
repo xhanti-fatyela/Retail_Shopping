@@ -68,12 +68,6 @@ app.post('/types', function (req, res) {
 })
 
 
-app.post('/form', function (req, res) {
-    thePhone = req.body.PhoneNumber
-    theMail = req.body.mail
- retailFact.contact(theMail,thePhone)
-    res.redirect('/confirm')
-})
 
 app.post('/done', function (req, res) {
 
@@ -84,35 +78,27 @@ app.post('/done', function (req, res) {
 app.get('/types2', function (req, res) {
 
 
-    res.render('Shoes2', { userz: check })
+    res.render('Shoes2')
 })
 
 app.get('/types', function (req, res) {
 
 
-    res.render('Shoes', { userz: check })
+    res.render('Shoes')
+})
+
+app.get('/types3', function (req, res) {
+
+
+    res.render('allshoes')
 })
 
 
-app.get('/form', function (req, res) {
 
-
-    res.render('form', {
-        userz: check
-    })
-})
 
 app.get('/confirm', function (req, res) {
 
-    res.render('confirm', {
-        userz: check,
-        myType: theType,
-        myColour: theColour,
-        mySize: theSize,
-        myMail:theMail,
-        myPhone:thePhone
-        
-    })
+    res.render('confirm')
 })
 
 var PORT = process.env.PORT || 3000
