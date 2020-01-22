@@ -78,7 +78,7 @@ app.post('/done', function (req, res) {
 app.get('/types2', function (req, res) {
 
 
-    res.render('Shoes2')
+    res.render('shoes2')
 })
 
 app.get('/types', function (req, res) {
