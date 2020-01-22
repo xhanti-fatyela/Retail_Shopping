@@ -39,6 +39,8 @@ var theType = '';
 var theColour = '';
 var theSize = 0;
 var thegender = '';
+var theMail;
+var thePhone =0;
 app.get('/', function (req, res) {
 
     res.render('index')
@@ -48,7 +50,7 @@ app.get('/', function (req, res) {
 
 app.post('/logins', function (req, res) {
     thegender = req.body.mydrop
-    retailFact.addName(req.body.namez, req.body.mydrop)
+    retailFact.addName(req.body.namez, req.body.gendercheck)
 
     check = req.body.namez
 
@@ -67,10 +69,23 @@ app.post('/types', function (req, res) {
 
 
 app.post('/form', function (req, res) {
- 
+    thePhone = req.body.PhoneNumber
+    theMail = req.body.mail
+ retailFact.contact(theMail,thePhone)
     res.redirect('/confirm')
 })
 
+app.post('/done', function (req, res) {
+
+    res.redirect('/')
+})
+
+
+app.get('/types2', function (req, res) {
+
+
+    res.render('Shoes2', { userz: check })
+})
 
 app.get('/types', function (req, res) {
 
@@ -94,6 +109,8 @@ app.get('/confirm', function (req, res) {
         myType: theType,
         myColour: theColour,
         mySize: theSize,
+        myMail:theMail,
+        myPhone:thePhone
         
     })
 })

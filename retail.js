@@ -5,9 +5,11 @@ module.exports = function myShop(pool) {
     var getSize = 0;
     var getGender = '';
 
+    var getMail = ''
+    var getPhone = ''
+
     var myName = '';
     async function addName(add,gender) {
-
 
         myName = add
         getGender = gender
@@ -20,6 +22,13 @@ module.exports = function myShop(pool) {
          getColour = colour
          getSize = size
          await pool.query('insert into shoes (types , colours, size) values ($1,$2,$3)', [getType, getColour, getSize]);
+    }
+
+    async function contact(mail,phone){
+
+        getMail = mail
+        getPhone = phone
+        await pool.query('insert into contacts (emails ,phonenumber) values ($1,$2)', [getMail, getPhone]);
     }
 
     function allData(){
@@ -36,6 +45,7 @@ module.exports = function myShop(pool) {
     return {
         addName,
         myData,
-        allData
+        allData,
+        contact
     }
 }
