@@ -34,7 +34,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-var check;
 var theType = '';
 var theColour = '';
 var theSize = 0;
@@ -50,20 +49,15 @@ app.get('/', function (req, res) {
 
 app.post('/logins', function (req, res) {
     thegender = req.body.mydrop
-    retailFact.addName(req.body.namez, req.body.gendercheck)
-
-    check = req.body.namez
+    retailFact.addName(req.body.gendercheck)
 
     res.redirect('/types')
 })
 
 
 app.post('/types', function (req, res) {
-    theType = req.body.mydrop2
-    theColour = req.body.mydrop3
-    theSize = req.body.mydrop4
-    retailFact.myData(theType, theColour, theSize)
-    retailFact.allData()
+    console.log(req.body.checks);
+    
     res.redirect('/form')
 })
 
