@@ -34,12 +34,15 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-var theType = '';
+var thePrice = '';
+
 var theColour = '';
 var theSize = 0;
 var thegender = '';
 var theMail;
-var thePhone =0;
+var theOrder = 0;
+var list = [];
+var getList;
 app.get('/', function (req, res) {
 
     res.render('index')
@@ -47,25 +50,75 @@ app.get('/', function (req, res) {
 
 
 
-app.post('/logins', function (req, res) {
-    thegender = req.body.mydrop
-    retailFact.addName(req.body.gendercheck)
+app.post('/logins', async function (req, res) {
+    thegender = req.body.genders
+
+    retailFact.addName(thegender)
+    retailFact.allData()
+
+
 
     res.redirect('/types')
 })
 
+app.post('/login', async function (req, res) {
+    thegender = req.body.genders
 
-app.post('/types', function (req, res) {
-    console.log(req.body.checks);
-    
-    res.redirect('/form')
+    retailFact.addName(thegender)
+    retailFact.allData()
+
+
+
+    res.redirect('/types2')
 })
 
 
+app.post('/types', function (req, res) {
+    thePrice = req.body.price
+    retailFact.pricesData(thePrice)
+    retailFact.allData()
+    res.redirect('/form')
+})
+
+app.post('/types2', function (req, res) {
+    thePrice = req.body.price
+    retailFact.pricesData(thePrice)
+    retailFact.allData()
+    
+
+    res.redirect('/form')
+})
+
+app.post('/types3', function (req, res) {
+
+
+    res.redirect('/form')
+})
 
 app.post('/done', function (req, res) {
 
     res.redirect('/')
+})
+
+app.post('/form', function (req, res) {
+    theMail = req.body.myMail
+    theColour = req.body.colour
+    theSize = req.body.size
+
+    retailFact.myData(theMail, theColour, theSize)
+    retailFact.getOrders()
+    retailFact.allData()
+
+    retailFact.finalData();
+
+    res.redirect('/confirm')
+})
+app.post('/search', async function (req, res) {
+
+    await retailFact.checkOrder(req.body.search)
+
+
+    res.redirect('/check')
 })
 
 
@@ -88,11 +141,32 @@ app.get('/types3', function (req, res) {
 })
 
 
+app.get('/form', function (req, res) {
 
+    res.render('form')
+})
 
-app.get('/confirm', function (req, res) {
+app.get('/confirm', async function (req, res) {
+  
+    list = await retailFact.finalData()
 
-    res.render('confirm')
+   
+    
+    res.render('confirm',{orders:list.orders})
+})
+
+app.get('/check', async function (req, res) {
+    list = await retailFact.finalOrders()
+    for (var i = 0; i < list.length; i++) {
+        getList = list[i]
+    }
+    console.log(getList);
+    res.render('check_order', {
+        emails: getList.email,
+        colours:getList.colour,
+        sizes:getList.size,
+        prices:getList.price
+    })
 })
 
 var PORT = process.env.PORT || 3000

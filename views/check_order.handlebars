@@ -1,0 +1,52 @@
+<div class="center" style="padding-bottom: 2em;">
+
+    <div class="jumbotron">
+        <h1 class="display-6">Enix.herokuapp.com</h1>
+        <p class="lead">We Bring You The Newest Shoes In The Market So Pre-Order Today!</p>
+        <hr class="my-4">
+
+    </div>
+    <div style="padding:1em; background-color:lightgrey">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="/types">Males</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/types2">Females</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/types3">All</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" tabindex="-1" aria-disabled="true"></a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Check Order"
+                        aria-label="Search" required>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Colour</th>
+                <th scope="col">Size</th>
+                <th scope="col">Price(Rands)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>{{emails}}</td>
+                <td>{{colours}}</td>
+                <td>{{sizes}}</td>
+                <td>{{prices}}</td>
+            </tr>
+        </tbody>
+    </table>
