@@ -1,40 +1,39 @@
-
 <div class="center" style="padding-bottom: 2em;">
 
   <div class="jumbotron">
-    <h1 class="display-6">ENIX.com</h1>
+ 
+    <h1 class="display-6">Enix.herokuapp.com</h1>
     <p class="lead">We Bring You The Newest Shoes In The Market So Pre-Order Today!</p>
     <hr class="my-4">
 
   </div>
 
-<div style="padding:1em; background-color:lightblue">
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link active" href="/types">Males</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/types2">Females</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/types3">All</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" tabindex="-1" aria-disabled="true"></a>
-        </li>
-        <li class="nav-item">
-                <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
-      <input class="form-control mr-sm-2" type="search" name="search" placeholder="Check Order" aria-label="Search" required>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
-    </form>
-        </li>
+  <div style="padding:1em; background-color:lightblue">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/types">Males</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/types2">Females</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link disabled" tabindex="-1" aria-disabled="true"></a>
+      </li>
+      <li class="nav-item">
+        <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
+          <input class="form-control mr-sm-2" type="search" name="search" placeholder="Check Order" aria-label="Search"
+            required>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </li>
     </ul>
-</div>
+  </div>
 
   <form action="/logins" method="POST">
-  
-
-
 
     <div style="padding: 1em;" class="d-flex justify-content-center">
       <div class="card p-2 bd-highlight" style="width: 18rem;background-color:darkgray">
@@ -46,19 +45,19 @@
         </div>
       </div>
   </form>
-    <form action="/login" method="POST">
-      <div class="card p-2 bd-highlight" style="width: 18rem;background-color:dimgray">
-        <img src="/images\1.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
+  <form action="/login" method="POST">
+    <div class="card p-2 bd-highlight" style="width: 18rem;background-color:dimgray">
+      <img src="/images\1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
 
-          <p class="card-text"></p>
-          <button type="submit" class="btn btn-secondary" name='genders' value="female">Check Female Shoes</button>
-        </div>
+        <p class="card-text"></p>
+        <button type="submit" class="btn btn-secondary" name='genders' value="female">Check Female Shoes</button>
       </div>
     </div>
+</div>
 
 
-  </form>
+</form>
 
 
 

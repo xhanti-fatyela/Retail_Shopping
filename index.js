@@ -22,7 +22,6 @@ const handlebarSetup = exphbs({
 });
 
 
-
 app.engine('handlebars', handlebarSetup);
 app.set('view engine', 'handlebars');
 
@@ -49,14 +48,11 @@ app.get('/', function (req, res) {
 })
 
 
-
 app.post('/logins', async function (req, res) {
     thegender = req.body.genders
 
     retailFact.addName(thegender)
     retailFact.allData()
-
-
 
     res.redirect('/types')
 })
@@ -66,8 +62,6 @@ app.post('/login', async function (req, res) {
 
     retailFact.addName(thegender)
     retailFact.allData()
-
-
 
     res.redirect('/types2')
 })
@@ -149,9 +143,7 @@ app.get('/form', function (req, res) {
 app.get('/confirm', async function (req, res) {
   
     list = await retailFact.finalData()
-
-   
-    
+ 
     res.render('confirm',{orders:list.orders})
 })
 
