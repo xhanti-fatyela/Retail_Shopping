@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 var thePrice = '';
-
+var theUser;
 var theColour = '';
 var theSize = 0;
 var thegender = '';
@@ -42,6 +42,7 @@ var theMail;
 var theOrder = 0;
 var list = [];
 var getList;
+var theContact = 0;
 app.get('/', function (req, res) {
 
     res.render('index')
@@ -50,7 +51,7 @@ app.get('/', function (req, res) {
 
 app.post('/logins', async function (req, res) {
     thegender = req.body.genders
-
+ 
     retailFact.addName(thegender)
     retailFact.allData()
 
@@ -98,8 +99,9 @@ app.post('/form', function (req, res) {
     theMail = req.body.myMail
     theColour = req.body.colour
     theSize = req.body.size
-
-    retailFact.myData(theMail, theColour, theSize)
+    theContact = req.body.myNumber
+    theUser = req.body.myUser
+    retailFact.myData(theUser,theMail, theContact, theColour, theSize)
     retailFact.getOrders()
     retailFact.allData()
 
@@ -154,6 +156,9 @@ app.get('/check', async function (req, res) {
     }
     console.log(getList);
     res.render('check_order', {
+        gender:getList.gender,
+        users: getList.users,
+        contact:getList.contact,
         emails: getList.email,
         colours:getList.colour,
         sizes:getList.size,

@@ -4,45 +4,76 @@
     <h1 class="display-6">Enix.herokuapp.com</h1>
     <p class="lead">We Bring You The Newest Shoes In The Market So Pre-Order Today!</p>
     <hr class="my-4">
-
   </div>
-  <div style="padding:1em; background-color:lightgrey">
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/types">Males</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/types2">Females</a>
-      </li>
+</div>
+<div >
+ <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/types">Males</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/types2">Females</a>
+                </li>
 
-      <li class="nav-item">
-        <a class="nav-link disabled" tabindex="-1" aria-disabled="true"></a>
-      </li>
-      <li class="nav-item">
-        <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
-          <input class="form-control mr-sm-2" type="search" name="search" placeholder="Check Order" aria-label="Search"
-            required>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </li>
-    </ul>
-  </div>
+                <li class="nav-item">
+                    <a class="nav-link disabled" tabindex="-1" aria-disabled="true"></a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
+                        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Check Order"
+                            aria-label="Search" required>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+
+        </nav>
+</div>
 
 
-  <div>
-    <form action="/form" method="POST">
+<div>
+
+  <form action="/form" method="POST">
+    <div>
+
+
+
       <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
-          style="text-align: center;" name="myMail" required>
+        <h4 style="padding-bottom: 1em;padding-top:1em">Personal Details</h4>
+
+        <div>
+          <label>Full Name</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="e.g Odwa Makhalima"
+            style="text-align: center;width:300px" name="myUser" required>
+        </div>
+
+        <div>
+          <label>Contact Number</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" 
+            style="text-align: center;width:300px" name="myNumber" required>
+        </div>
+
+        <div style="padding-bottom: 1em;">
+          <label>Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+            style="text-align: center;width:450px" name="myMail" required>
+        </div>
+
+
+
       </div>
+    </div>
+
+    <div style="padd">
       <div class="form-group">
         <label for="exampleFormControlSelect1">Choose Color</label>
-        <select class="form-control" id="exampleFormControlSelect1" name="colour" required>
-          <option>Black</option>
+        <select class="form-control" id="exampleFormControlSelect1" style="text-align: center;width:450px" name="colour"
+          required>
+          <option value="#e66465">Black</option>
           <option>Brown</option>
           <option>Red</option>
           <option>Blue</option>
@@ -51,18 +82,23 @@
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect2">Select Size</label>
-        <select multiple class="form-control" id="exampleFormControlSelect2" name="size" required>
+        <select class="form-control" id="exampleFormControlSelect2" style="text-align: center;width:450px" name="size"
+          required>
           <option>3</option>
           <option>4</option>
           <option>5</option>
           <option>6</option>
           <option>7</option>
+          <option>8</option>
+          <option>9</option>
         </select>
       </div>
 
-      <div>
-        <button class="btn btn-primary" id="sub">Submit</button>
-      </div>
-    </form>
+    </div>
 
-  </div>
+    <div style="padding-top: 1em;">
+      <button class="btn btn-primary" id="sub">Submit</button>
+    </div>
+  </form>
+
+</div>

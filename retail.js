@@ -10,20 +10,24 @@ module.exports = function myShop(pool) {
     var final = []
     var order_nos;
     var known;
+    var getContact;
 
 
-    var myName = '';
+    var getUser = '';
 
     var myObj = {}
     function addName(gender) {
         getGender = gender
+        
 
     }
 
-    function myData(emails, colour, size) {
+    function myData(user,emails, contact, colour, size) {
         getEmail = emails
         getColour = colour
         getSize = size
+        getContact = contact
+        getUser = user
         //  await pool.query('insert into shoes (types , colours, size) values ($1,$2,$3)', [getType, getColour, getSize]);
     }
 
@@ -39,8 +43,10 @@ module.exports = function myShop(pool) {
    async function allData() {
 
         myObj = {
+            genders:getGender,
+            users:getUser,
             mails: getEmail,
-            genders: getGender,
+            contact: getContact,
             colours: getColour,
             sizes: getSize,
             prices: getPrice,
@@ -52,7 +58,7 @@ module.exports = function myShop(pool) {
     }
 
    async function finalData() {
-        await pool.query('insert into retails (email ,gender, colour, size, price, order_no) values ($1,$2,$3,$4,$5,$6)', [myObj.mails, myObj.genders, myObj.colours, myObj.sizes, myObj.prices, myObj.orders]);
+        await pool.query('insert into retails (gender,users,email ,contact, colour, size, price, order_no) values ($1,$2,$3,$4,$5,$6,$7,$8)', [myObj.genders,myObj.users,myObj.mails, myObj.contact, myObj.colours, myObj.sizes, myObj.prices, myObj.orders]);
         return myObj
     }
 
