@@ -6,6 +6,6 @@ email text not null,
 contact int not null,
 Colour text not null,
 size int not null,
-price int not null,
+price text not null,
 order_no text not null
 );
