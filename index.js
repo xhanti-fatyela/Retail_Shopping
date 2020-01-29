@@ -150,20 +150,14 @@ app.get('/confirm', async function (req, res) {
 })
 
 app.get('/check', async function (req, res) {
-    list = await retailFact.finalOrders()
+    list = await retailFact.lastFinal()
+    await retailFact.finalOrders()
     for (var i = 0; i < list.length; i++) {
         getList = list[i]
     }
-    console.log(getList);
-    res.render('check_order', {
-        gender:getList.gender,
-        users: getList.users,
-        contact:getList.contact,
-        emails: getList.email,
-        colours:getList.colour,
-        sizes:getList.size,
-        prices:getList.price
-    })
+
+    res.render('check_order',{list,
+    prices:getList.price} )
 })
 
 var PORT = process.env.PORT || 3000
