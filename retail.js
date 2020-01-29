@@ -126,7 +126,7 @@ module.exports = function myShop(pool) {
     }
 
     async function lastFinal() {
-        return final
+        return await final
     } 
 
     return {
