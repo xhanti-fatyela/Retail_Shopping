@@ -72,7 +72,6 @@ module.exports = function myShop(pool) {
     async function allData() {
 
         myObj = {
-            genders: getGender,
             users: getUser,
             mails: getEmail,
             contact: getContact,
@@ -88,7 +87,7 @@ module.exports = function myShop(pool) {
     }
 
     async function finalData() {
-        await pool.query('insert into retails (gender,users,email ,contact, colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7,$8,$9)', [myObj.genders, myObj.users, myObj.mails, myObj.contact, myObj.colours, myObj.sizes, myObj.prices, myObj.orders,myObj.cost]);
+        await pool.query('insert into retails (users,email ,contact, colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7,$8)', [ myObj.users, myObj.mails, myObj.contact, myObj.colours, myObj.sizes, myObj.prices, myObj.orders,myObj.cost]);
         return await myObj
     }
 
