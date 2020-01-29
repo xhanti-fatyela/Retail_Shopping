@@ -104,10 +104,7 @@ module.exports = function myShop(pool) {
             }
 
         }
-
-
     }
-
 
     async function lastFinal() {
         return await final

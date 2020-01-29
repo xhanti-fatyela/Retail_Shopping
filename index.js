@@ -55,7 +55,7 @@ app.post('/logins', async function (req, res) {
     retailFact.addName(thegender)
     retailFact.allData()
 
-    res.redirect('/types')
+    res.redirect('/Male_Section')
 })
 
 app.post('/login', async function (req, res) {
@@ -64,7 +64,7 @@ app.post('/login', async function (req, res) {
     retailFact.addName(thegender)
     retailFact.allData()
 
-    res.redirect('/types2')
+    res.redirect('/Female_Section')
 })
 
 
@@ -107,33 +107,27 @@ app.post('/form', async function (req, res) {
 
     await retailFact.finalData();
 
-    res.redirect('/confirm')
+    res.redirect('/Thank_You_Page')
 })
 app.post('/search', async function (req, res) {
 
     await retailFact.checkOrder(req.body.search)
 
 
-    res.redirect('/check')
+    res.redirect('/check_Your_Order')
 })
 
 
-app.get('/types2', function (req, res) {
+app.get('/Female_Section', function (req, res) {
 
 
     res.render('shoes2')
 })
 
-app.get('/types', function (req, res) {
+app.get('/Male_Section', function (req, res) {
 
 
     res.render('Shoes')
-})
-
-app.get('/types3', function (req, res) {
-
-
-    res.render('allshoes')
 })
 
 
@@ -142,7 +136,7 @@ app.get('/form', function (req, res) {
     res.render('form')
 })
 
-app.get('/confirm', async function (req, res) {
+app.get('/Thank_You_Page', async function (req, res) {
 
     list = await retailFact.finalData()
 
@@ -150,7 +144,7 @@ app.get('/confirm', async function (req, res) {
     res.render('confirm', { orderz: list.orders })
 })
 
-app.get('/check', async function (req, res) {
+app.get('/check_Your_Order', async function (req, res) {
     list = await retailFact.lastFinal()
 
     for (var i = 0; i < list.length; i++) {
