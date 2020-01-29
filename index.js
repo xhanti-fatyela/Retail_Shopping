@@ -101,7 +101,7 @@ app.post('/form',async function (req, res) {
     theSize = req.body.size
     theContact = req.body.myNumber
     theUser = req.body.myUser
-    retailFact.myData(theUser,theMail, theContact, theColour, theSize)
+    await retailFact.myData(theUser,theMail, theContact, theColour, theSize)
     retailFact.getOrders()
     await retailFact.allData()
 

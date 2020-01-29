@@ -22,14 +22,15 @@ module.exports = function myShop(pool) {
 
     }
 
-    function myData(user, emails, contact, colour, size) {
+    async function myData(user, emails, contact, colour, size) {
         getEmail = emails
         getColour = colour
         getSize = size
         getContact = contact
         getUser = user
 
-        //  await pool.query('insert into shoes (types , colours, size) values ($1,$2,$3)', [getType, getColour, getSize]);
+         
+            
     }
 
     function pricesData(price) {
@@ -62,9 +63,6 @@ module.exports = function myShop(pool) {
             getCost = 600
         }
 
-
-
-        
     }
 
     function getOrders() {
@@ -90,8 +88,8 @@ module.exports = function myShop(pool) {
     }
 
     async function finalData() {
-      //  await pool.query('insert into retails (gender,users,email ,contact, colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7,$8,$9)', [myObj.genders, myObj.users, myObj.mails, myObj.contact, myObj.colours, myObj.sizes, myObj.prices, myObj.orders,myObj.cost]);
-        return myObj
+        await pool.query('insert into retails (gender,users,email ,contact, colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7,$8,$9)', [myObj.genders, myObj.users, myObj.mails, myObj.contact, myObj.colours, myObj.sizes, myObj.prices, myObj.orders,myObj.cost]);
+        return await myObj
     }
 
     async function checkOrder(orderz) {
