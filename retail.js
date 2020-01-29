@@ -108,23 +108,21 @@ module.exports = function myShop(pool) {
 
     }
 
-    async function finalOrders() {
-        known = await pool.query('SELECT * FROM retails')
-        for (var j = 0; j < known.rows.length; j++) {
-            var userz = known.rows[j]
-            if (userz.email == getEmail) {
-                final.push(userz)
-            }
-
-        }
-  
-        
-        
-    }
 
     async function lastFinal() {
         return await final
     } 
+
+    async function getPicture(){
+        known = await pool.query('SELECT * FROM retails')
+        
+        for (var x = 0; x < known.rows.length; x++) {
+            var users = known.rows[x]
+
+        }
+       console.log(users);
+       
+    }
 
     return {
         addName,
@@ -134,7 +132,7 @@ module.exports = function myShop(pool) {
         finalData,
         pricesData,
         checkOrder,
-        finalOrders,
+        getPicture,
         lastFinal
     }
 }

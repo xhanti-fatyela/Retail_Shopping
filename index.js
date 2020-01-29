@@ -51,7 +51,7 @@ app.get('/', function (req, res) {
 
 app.post('/logins', async function (req, res) {
     thegender = req.body.genders
- 
+
     retailFact.addName(thegender)
     retailFact.allData()
 
@@ -79,7 +79,7 @@ app.post('/types2', function (req, res) {
     thePrice = req.body.price
     retailFact.pricesData(thePrice)
     retailFact.allData()
-    
+
 
     res.redirect('/form')
 })
@@ -95,17 +95,17 @@ app.post('/done', function (req, res) {
     res.redirect('/')
 })
 
-app.post('/form',async function (req, res) {
+app.post('/form', async function (req, res) {
     theMail = req.body.myMail
     theColour = req.body.colour
     theSize = req.body.size
     theContact = req.body.myNumber
     theUser = req.body.myUser
-    await retailFact.myData(theUser,theMail, theContact, theColour, theSize)
+    await retailFact.myData(theUser, theMail, theContact, theColour, theSize)
     retailFact.getOrders()
     await retailFact.allData()
 
-   await retailFact.finalData();
+    await retailFact.finalData();
 
     res.redirect('/confirm')
 })
@@ -143,22 +143,32 @@ app.get('/form', function (req, res) {
 })
 
 app.get('/confirm', async function (req, res) {
-  
+
     list = await retailFact.finalData()
-    console.log(list);
-    
-    res.render('confirm',{orderz:list.orders})
+
+
+    res.render('confirm', { orderz: list.orders })
 })
 
 app.get('/check', async function (req, res) {
     list = await retailFact.lastFinal()
-    await retailFact.finalOrders()
-    for (var i = 0; i < list.length; i++) {
-        getList = list[i]
-    }
 
-    res.render('check_order',{list,
-    prices:getList.price} )
+    for (var i = 0; i < list.length; i++) {
+        var user = list[i]
+
+    }
+    //await retailFact.getPicture()
+
+    res.render('check_order', {
+        users: user.users,
+        emails: user.email,
+        contacts:user.contact,
+        colours:user.colour,
+        sizes:user.size,
+        prices:user.price,
+        costs:user.cost
+
+    })
 })
 
 var PORT = process.env.PORT || 3000
