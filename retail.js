@@ -120,7 +120,7 @@ module.exports = function myShop(pool) {
             }
 
         }
-        console.log(final);
+  
         
         
     }

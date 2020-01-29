@@ -145,8 +145,9 @@ app.get('/form', function (req, res) {
 app.get('/confirm', async function (req, res) {
   
     list = await retailFact.finalData()
- 
-    res.render('confirm',{orders:list.orders})
+    console.log(list);
+    
+    res.render('confirm',{orderz:list.orders})
 })
 
 app.get('/check', async function (req, res) {
