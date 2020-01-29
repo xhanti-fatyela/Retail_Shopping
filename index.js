@@ -95,7 +95,7 @@ app.post('/done', function (req, res) {
     res.redirect('/')
 })
 
-app.post('/form', function (req, res) {
+app.post('/form',async function (req, res) {
     theMail = req.body.myMail
     theColour = req.body.colour
     theSize = req.body.size
@@ -103,9 +103,9 @@ app.post('/form', function (req, res) {
     theUser = req.body.myUser
     retailFact.myData(theUser,theMail, theContact, theColour, theSize)
     retailFact.getOrders()
-    retailFact.allData()
+    await retailFact.allData()
 
-    retailFact.finalData();
+   await retailFact.finalData();
 
     res.redirect('/confirm')
 })
