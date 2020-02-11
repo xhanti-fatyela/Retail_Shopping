@@ -43,6 +43,7 @@ var theOrder = 0;
 var list = [];
 var getList;
 var theContact = 0;
+var lists;
 app.get('/', function (req, res) {
 
     res.render('index')
@@ -68,10 +69,11 @@ app.post('/login', async function (req, res) {
 })
 
 
-app.post('/types', function (req, res) {
+app.post('/types',async function (req, res) {
     thePrice = req.body.price
-    retailFact.pricesData(thePrice)
+    await retailFact.pricesData(thePrice)
     retailFact.allData()
+    await retailFact.myStock()
     res.redirect('/form')
 })
 
@@ -80,12 +82,10 @@ app.post('/types2', function (req, res) {
     retailFact.pricesData(thePrice)
     retailFact.allData()
 
-
     res.redirect('/form')
 })
 
 app.post('/types3', function (req, res) {
-
 
     res.redirect('/form')
 })
@@ -110,23 +110,32 @@ app.post('/form', async function (req, res) {
     res.redirect('/Thank_You_Page')
 })
 app.post('/search', async function (req, res) {
+    theOrder = req.body.search
+    list = await retailFact.finalData()
+    await retailFact.checkOrder(theOrder)
 
-    await retailFact.checkOrder(req.body.search)
+    for (var i = 0; i < list.length; i++) {
+        var userz = list[i]
+    }
+
+    // if(userz.order_no !== theOrder){
+    //     res.redirect('/')
+    // }
+
 
 
     res.redirect('/check_Your_Order')
 })
 
-
-app.get('/Female_Section', function (req, res) {
-
-
+app.get('/Female_Section',async function (req, res) {
+    await retailFact.myStock()
     res.render('shoes2')
 })
 
-app.get('/Male_Section', function (req, res) {
-
-
+app.get('/Male_Section',async function (req, res) {
+    // lists = await retailFact.myStock()
+    // console.log(lists);
+    
     res.render('Shoes')
 })
 
@@ -151,7 +160,9 @@ app.get('/check_Your_Order', async function (req, res) {
         var user = list[i]
 
     }
-    //await retailFact.getPicture()
+
+    
+    
 
     res.render('check_order', {
         users: user.users,
