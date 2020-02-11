@@ -46,6 +46,7 @@ module.exports = function myShop(pool) {
 
         if (getPrice === "/images/b.jpg") {
             await pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+            store = await pool.query('select stock from sku WHERE shoes = $1', [getPrice])
             getCost = 800
         }
         else if (getPrice === "/images/c.jpg") {
@@ -79,6 +80,7 @@ module.exports = function myShop(pool) {
             await pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
             getCost = 600
         }
+console.log(store.rows);
 
     }
 
@@ -137,12 +139,12 @@ module.exports = function myShop(pool) {
 
     }
     async function myStock(){
-        store = await pool.query('select * from sku WHERE shoes = $1', [getPrice])
+        known2 = await pool.query('select * from sku WHERE shoes = $1', [getPrice])
 
-        for(var t = 0;t<store.rows.length;t++){
-            var storeStock = store.rows[t]
+        for(var t = 0;t<known2.rows.length;t++){
+            var storeStock = known2.rows[t]
         }
-        console.log(storeStock);
+       // console.log(storeStock);
         
         return storeStock
     }
