@@ -42,7 +42,6 @@ var theMail;
 var theOrder = 0;
 var list = [];
 var getList;
-var theContact = 0;
 var lists;
 app.get('/', function (req, res) {
 
@@ -61,6 +60,7 @@ app.post('/logins', async function (req, res) {
 
 app.post('/login', async function (req, res) {
     thegender = req.body.genders
+
     retailFact.addName(thegender)
     retailFact.allData()
 
@@ -98,9 +98,8 @@ app.post('/form', async function (req, res) {
     theMail = req.body.myMail
     theColour = req.body.colour
     theSize = req.body.size
-    theContact = req.body.myNumber
     theUser = req.body.myUser
-    await retailFact.myData(theUser, theMail, theContact, theColour, theSize)
+    await retailFact.myData(theUser, theMail, theColour, theSize)
     retailFact.getOrders()
     await retailFact.allData()
 

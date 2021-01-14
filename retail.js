@@ -11,7 +11,6 @@ module.exports = function myShop(pool) {
     var order_nos;
     var known;
     var known2;
-    var getContact;
     var getCost = 0;
     var store;
 
@@ -24,11 +23,10 @@ module.exports = function myShop(pool) {
 
     }
 
-    async function myData(user, emails, contact, colour, size) {
+    async function myData(user, emails, colour, size) {
         getEmail = emails
         getColour = colour
         getSize = size
-        getContact = contact
         getUser = user
 
 
@@ -93,7 +91,6 @@ console.log(store.rows);
         myObj = {
             users: getUser,
             mails: getEmail,
-            contact: getContact,
             colours: getColour,
             sizes: getSize,
             prices: getPrice,
@@ -106,14 +103,14 @@ console.log(store.rows);
     }
 
     async function finalData() {
-        await pool.query('insert into retails (users,email ,contact, colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7,$8)', [myObj.users, myObj.mails, myObj.contact, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost]);
+        await pool.query('insert into myRetails (users,email , colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7,$8)', [myObj.users, myObj.mails, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost]);
         return await myObj
     }
 
     async function checkOrder(orderz) {
         order_nos = orderz
 
-        known = await pool.query('SELECT * FROM retails')
+        known = await pool.query('SELECT * FROM myRetails')
 
 
         for (var i = 0; i < known.rows.length; i++) {
@@ -130,7 +127,7 @@ console.log(store.rows);
     }
 
     async function getPicture() {
-        known = await pool.query('SELECT * FROM retails')
+        known = await pool.query('SELECT * FROM myRetails')
 
         for (var x = 0; x < known.rows.length; x++) {
             var users = known.rows[x]

@@ -1,8 +1,7 @@
-create table retails(
+create table myRetails(
 id serial not null primary key,
 users text not null,
 email text not null,
-contact int not null,
 colour text not null,
 size int not null,
 price text not null,
