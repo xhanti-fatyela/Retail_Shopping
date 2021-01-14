@@ -76,10 +76,10 @@ app.post('/types',async function (req, res) {
     res.redirect('/')
 })
 
-app.post('/types2', function (req, res) {
+app.post('/types2',async function (req, res) {
     thePrice = req.body.price
     retailFact.pricesData(thePrice)
-    retailFact.allData()
+    await retailFact.allData()
 
     res.redirect('/')
 })

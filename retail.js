@@ -140,7 +140,6 @@ console.log(store.rows);
 
         }
 
-
 return users
     }
 
