@@ -86,21 +86,7 @@ console.log(store.rows);
         getOrder = Math.floor(1000 + Math.random() * 9000);
     }
 
-    async function allData() {
 
-        myObj = {
-            users: getUser,
-            mails: getEmail,
-            colours: getColour,
-            sizes: getSize,
-            prices: getPrice,
-            orders: getOrder,
-            cost: getCost
-        }
-
-
-
-    }
 
     async function finalData() {
         await pool.query('insert into myRetails (users,email , colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7)', [myObj.users, myObj.mails, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost]);
@@ -146,6 +132,17 @@ console.log(store.rows);
         return storeStock
     }
 
+    async function allData() {
+        known = await pool.query('SELECT * FROM myRetails')
+
+        for (var x = 0; x < known.rows.length; x++) {
+            var users = known.rows[x]
+
+        }
+
+
+return users
+    }
 
     // async function myBask(price, cost) {
     //     checking = false
