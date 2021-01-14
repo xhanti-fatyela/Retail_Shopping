@@ -161,9 +161,13 @@ app.get('/check_Your_Order', async function (req, res) {
     console.log(user);
 
     res.render('check_order', {
-
+        users: user.users,
+        emails: user.email,
+        contacts:user.contact,
+        colours:user.colour,
+        sizes:user.size,
         prices:user.price,
-
+        costs:user.cost
 
     })
 })
