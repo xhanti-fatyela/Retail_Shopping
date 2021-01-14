@@ -1,122 +1,188 @@
-<div class="container py-5">
+<nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a href="#" class="navbar-brand">
+      <!-- Logo Image -->
+      <img src="/images\favicon.ico" width="45" alt="" class="d-inline-block align-middle mr-2">
+      <!-- Logo Text -->
+      <span class="text-uppercase font-weight-bold">Enix</span>
+    </a>
 
-  <!-- For demo purpose -->
-  <div class="row text-center text-white mb-5">
-    <div class="col-lg-7 mx-auto">
-      <h1 class="display-4">Bootstrap 4 list</h1>
-      <p class="lead mb-0">Create an elegant product list using Bootstrap 4 list group</p>
-      <p class="lead">Snippet by <a href="https://bootstrapious.com/snippets" class="text-white"> 
-                <u>Bootstrapious</u></a>
-      </p>
+    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="/Male_Section" class="nav-link">Male</a></li>
+        <li class="nav-item"><a href="/Female_Section" class="nav-link">Female</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
     </div>
   </div>
-  <!-- End -->
+</nav>
 
-  <div class="row">
-    <div class="col-lg-8 mx-auto">
 
-      <!-- List group-->
-      <ul class="list-group shadow">
 
-        <!-- list group item-->
-        <li class="list-group-item">
-          <!-- Custom content-->
-          <form action="/types" method="post">
-          <div class="media align-items-lg-center flex-column flex-lg-row p-3">
-            <div class="media-body order-2 order-lg-1">
-              <h5 class="mt-0 font-weight-bold mb-2">Awesome product</h5>
-              <p class="font-italic text-muted mb-0 small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.</p>
-              <div class="d-flex align-items-center justify-content-between mt-1">
-                <h6 class="font-weight-bold my-2">R1120.00</h6>
-                <ul class="list-inline small">
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
-                </ul>
+<div class="container-fluid" style="padding-top: 1em;">
+  <div class="px-lg-5">
+
+    <div class="row">
+      <!-- Gallery item -->
+  
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <form action="/types" method="post"></form>
+        <div class="bg-white rounded shadow-sm"><img src="/images\b.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
+
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R800</span></p>
+                            <div>
+                 <button type="submit" class="btn btn-primary" id="shoe1" name="price" value="/images/b.jpg">Add To Cart</button>
               </div>
-            </div><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485076/shoes-1_gthops.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
-            <div>
-              <button type="submit" class="btn btn-primary" id="shoe1" name="price" value="/images/b.jpg">Add To Cart</button>
             </div>
           </div>
-          </form>
-          <!-- End -->
-        </li>
-        <!-- End -->
-
-        <!-- list group item-->
-        <li class="list-group-item">
-          <!-- Custom content-->
-          <div class="media align-items-lg-center flex-column flex-lg-row p-3">
-            <div class="media-body order-2 order-lg-1">
-              <h5 class="mt-0 font-weight-bold mb-2">Awesome product</h5>
-              <p class="font-italic text-muted mb-0 small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.</p>
-              <div class="d-flex align-items-center justify-content-between mt-1">
-                <h6 class="font-weight-bold my-2">$99.00</h6>
-                <ul class="list-inline small">
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                </ul>
-              </div>
-            </div><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485077/shoes-3_rk25rt.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
-          </div>
-          <!-- End -->
-        </li>
-        <!-- End -->
-
-        <!-- list group item -->
-        <li class="list-group-item">
-          <!-- Custom content-->
-          <div class="media align-items-lg-center flex-column flex-lg-row p-3">
-            <div class="media-body order-2 order-lg-1">
-              <h5 class="mt-0 font-weight-bold mb-2">Awesome product</h5>
-              <p class="font-italic text-muted mb-0 small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.</p>
-              <div class="d-flex align-items-center justify-content-between mt-1">
-                <h6 class="font-weight-bold my-2">$140.00</h6>
-                <ul class="list-inline small">
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
-                </ul>
-              </div>
-            </div><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485078/shoes-2_g4qame.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
-          </div>
-          <!-- End -->
-        </li>
-        <!-- End -->
-
-        <!-- list group item -->
-        <li class="list-group-item">
-          <!-- Custom content-->
-          <div class="media align-items-lg-center flex-column flex-lg-row p-3">
-            <div class="media-body order-2 order-lg-1">
-              <h5 class="mt-0 font-weight-bold mb-2">Awesome product</h5>
-              <p class="font-italic text-muted mb-0 small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.</p>
-              <div class="d-flex align-items-center justify-content-between mt-1">
-                <h6 class="font-weight-bold my-2">$220.00</h6>
-                <ul class="list-inline small">
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                </ul>
-              </div>
-            </div><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485078/shoes-4_vgfjy9.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
-          </div>
-          <!-- End -->
-        </li>
-        <!-- End -->
-
-      </ul>
+        </div>
+      </div>
+      </form>
       <!-- End -->
+
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <form action="/types" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\c.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
+
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R1200</span></p>
+                            <div>
+                <button type="submit" class="btn btn-primary" id="shoe2" name="price" value="/images/c.jpg">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
+
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <form action="/types" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\d.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
+
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R700</span></p>
+                            <div>
+               <button class="btn btn-primary" id="shoe3" name="price" value="/images/d.jpg">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
+
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+         <form action="/types" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\e.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
+
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R1500</span></p>
+                            <div>
+              <button class="btn btn-primary" id="shoe4" name="price" value="/images/e.jpg">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
+
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+         <form action="/types2" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\5.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
+
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R900</span></p>
+                            <div>
+              <button type="submit" class="btn btn-primary" id="shoe6" name="price" value="/images/5.jpg">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
+
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+         <form action="/types2" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\2.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
+
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R1100</span></p>
+                            <div>
+               <button type="submit" class="btn btn-primary" id="shoe7" name="price" value="/images/2.jpg">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
+
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+         <form action="/types2" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\3.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
+
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R800</span></p>
+                            <div>
+               <button type="submit" class="btn btn-primary" id="shoe8" name="price" value="/images/3.jpg">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
+
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+         <form action="/types2" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\4.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
+
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R600</span></p>
+                            <div>
+<button type="submit" class="btn btn-primary" id="shoe9" name="price" value="/images/4.jpg">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
+
+      
+
+
     </div>
+    <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Show me more</a></div>
   </div>
 </div>

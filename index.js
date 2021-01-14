@@ -73,7 +73,7 @@ app.post('/types',async function (req, res) {
     await retailFact.pricesData(thePrice)
     retailFact.allData()
     await retailFact.myStock()
-    res.redirect('/form')
+    res.redirect('/')
 })
 
 app.post('/types2', function (req, res) {

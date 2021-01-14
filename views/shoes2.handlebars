@@ -1,40 +1,24 @@
-<div class="center" style="padding-bottom: 2em;">
+<nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a href="#" class="navbar-brand">
+      <!-- Logo Image -->
+      <img src="/images\favicon.ico" width="45" alt="" class="d-inline-block align-middle mr-2">
+      <!-- Logo Text -->
+      <span class="text-uppercase font-weight-bold">Enix</span>
+    </a>
 
-    <div class="jumbotron">
-  <img src="/images\favicon.ico" class="card-img-top" alt="..." style="width: 100px;">
-        <p class="lead">We Bring You The Newest Shoes In The Market So Order Today!</p>
-        <hr class="my-4">
+    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
 
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="/Male_Section" class="nav-link">Male</a></li>
+        <li class="nav-item"><a href="/Female_Section" class="nav-link">Female</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
     </div>
-
-    <div style="background-color: #e3f2fd;">
-        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Male_Section">Males</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Female_Section">Females</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link disabled" tabindex="-1" aria-disabled="true"></a>
-                </li>
-                <li class="nav-item">
-                    <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
-                        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Check Order"
-                            aria-label="Search" required>
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </li>
-            </ul>
-
-        </nav>
-
-    </div>
+  </div>
+</nav>
 
     <div style="padding-top: 1em;">
         <h5> <u>Female Shoes</u> </h5>
@@ -43,47 +27,81 @@
     <div class="d-flex justify-content-start" style="padding: 2em;">
 
 
-        <form action="/types2" method="POST">
-            <div class="card" style="width: 15rem;background-color:darkgray">
-                <img src="/images\5.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5>R900</h5>
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+         <form action="/types2" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\5.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
 
-                    <button type="submit" class="btn btn-primary" id="shoe6" name="price" value="/images/5.jpg">Order</button>
-                </div>
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R900</span></p>
+                            <div>
+              <button type="submit" class="btn btn-primary" id="shoe6" name="price" value="/images/5.jpg">Add To Cart</button>
+              </div>
             </div>
-        </form>
-        <form action="/types2" method="POST">
-            <div class="card" style="width: 15rem;background-color:darkgray">
-                <img src="/images\2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
 
-                    <h5>R1100</h5>
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+         <form action="/types2" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\2.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
 
-                    <button type="submit" class="btn btn-primary" id="shoe7" name="price" value="/images/2.jpg">Order</button>
-                </div>
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R1100</span></p>
+                            <div>
+               <button type="submit" class="btn btn-primary" id="shoe7" name="price" value="/images/2.jpg">Add To Cart</button>
+              </div>
             </div>
-        </form>
-        <form action="/types2" method="POST">
-            <div class="card" style="width: 15rem;background-color:darkgray">
-                <img src="/images\3.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5>R800</h5>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
 
-                    <button type="submit" class="btn btn-primary" id="shoe8" name="price" value="/images/3.jpg">Order</button>
-                </div>
-            </div>
-        </form>
-        <form action="/types2" method="POST">
-            <div class="card" style="width: 15rem;background-color:darkgray">
-                <img src="/images\4.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+         <form action="/types2" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\3.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
 
-                    <h5>R600</h5>
-                    <button type="submit" class="btn btn-primary" id="shoe9" name="price" value="/images/4.jpg">Order</button>
-                </div>
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R800</span></p>
+                            <div>
+               <button type="submit" class="btn btn-primary" id="shoe8" name="price" value="/images/3.jpg">Add To Cart</button>
+              </div>
             </div>
-        </form>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
+
+      <!-- Gallery item -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+         <form action="/types2" method="post">
+        <div class="bg-white rounded shadow-sm"><img src="/images\4.jpg" alt="" class="img-fluid card-img-top">
+          <div class="p-4">
+         
+
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">R600</span></p>
+                            <div>
+<button type="submit" class="btn btn-primary" id="shoe9" name="price" value="/images/4.jpg">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- End -->
 
 
 
