@@ -98,18 +98,17 @@ console.log(store.rows);
         known = await pool.query('SELECT * FROM myRetails')
 
 
+        for (var i = 0; i < known.rows.length; i++) {
+            var user = known.rows[i]
+            if (user.order_no == order_nos) {
+                final.push(user)
+            }
 
+        }
     }
 
     async function lastFinal() {
-        known = await pool.query('SELECT * FROM sku')
-        // for (var i = 0; i < known.rows.length; i++) {
-        //     var user = known.rows[i]
-        //     if (user.order_no == order_nos) {
-        //         final.push(user)
-        //     }
-
-        // }
+        return await final
     }
 
     async function getPicture() {
