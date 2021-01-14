@@ -89,8 +89,7 @@ console.log(store.rows);
 
 
     async function finalData() {
-        await pool.query('insert into myRetails (users,email , colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7)', [myObj.users, myObj.mails, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost]);
-        return await myObj
+   
     }
 
     async function checkOrder(orderz) {
@@ -99,17 +98,18 @@ console.log(store.rows);
         known = await pool.query('SELECT * FROM myRetails')
 
 
-        for (var i = 0; i < known.rows.length; i++) {
-            var user = known.rows[i]
-            if (user.order_no == order_nos) {
-                final.push(user)
-            }
 
-        }
     }
 
     async function lastFinal() {
-        return await final
+        known = await pool.query('SELECT * FROM sku')
+        // for (var i = 0; i < known.rows.length; i++) {
+        //     var user = known.rows[i]
+        //     if (user.order_no == order_nos) {
+        //         final.push(user)
+        //     }
+
+        // }
     }
 
     async function getPicture() {
@@ -139,8 +139,8 @@ console.log(store.rows);
             var users = known.rows[x]
 
         }
-
-return users
+console.log(users);
+return await users
     }
 
     // async function myBask(price, cost) {

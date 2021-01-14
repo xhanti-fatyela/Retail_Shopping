@@ -68,12 +68,13 @@ app.post('/login', async function (req, res) {
 })
 
 
-app.post('/types',async function (req, res) {
+app.post('/types',function (req, res) {
     thePrice = req.body.price
+    console.log(thePrice)
     retailFact.pricesData(thePrice)
     
-    console.log(await retailFact.allData());
-    res.redirect('/')
+    console.log(retailFact.allData());
+    res.redirect('/check_Your_Order')
 })
 
 app.post('/types2',async function (req, res) {
@@ -157,16 +158,12 @@ app.get('/check_Your_Order', async function (req, res) {
         var user = list[i]
 
     }
-    
+    console.log(user);
 
     res.render('check_order', {
-        users: user.users,
-        emails: user.email,
-        contacts:user.contact,
-        colours:user.colour,
-        sizes:user.size,
+
         prices:user.price,
-        costs:user.cost
+
 
     })
 })
