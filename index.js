@@ -61,7 +61,6 @@ app.post('/logins', async function (req, res) {
 
 app.post('/login', async function (req, res) {
     thegender = req.body.genders
-
     retailFact.addName(thegender)
     retailFact.allData()
 
@@ -176,7 +175,7 @@ app.get('/check_Your_Order', async function (req, res) {
     })
 })
 
-var PORT = process.env.PORT || 3000
+var PORT = process.env.PORT || 5000
 
 app.listen(PORT, function () {
     console.log('server', PORT)

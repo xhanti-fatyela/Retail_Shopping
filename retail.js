@@ -149,6 +149,41 @@ console.log(store.rows);
         return storeStock
     }
 
+
+    // async function myBask(price, cost) {
+    //     checking = false
+    //     for (var j = 0; j < theShoes.length; j++) {
+    //         if (brand === theShoes[j].brand && color === theShoes[j].color) {
+    //             total += theShoes[j].price
+    //             theShoes[j].stock--
+    //             if (theShoes[j].stock <= 0) {
+    //                 theShoes.splice(j, 1)
+    //             }
+    //             for (var z = 0; z < basket.length; z++) {
+    //                 if (basket[z].brand === brand && basket[z].color === color && basket[z].size === Number(size)) {
+    //                     basket[z].quantity++;
+    //                     checking = true
+    //                 }
+    //                 else {
+    //                     errorM = 'Shoe Added To The Basket'
+    //                 }
+    //             }
+    //         }
+
+
+    //         if (!checking) {
+    //             var finalShoes = {
+    //                 brand,
+    //                 color,
+    //                 size: Number(size),
+    //                 quantity: 0
+    //             };
+    //         }
+    //         basket.push(finalShoes)
+    //     }
+
+    // }
+
     return {
         addName,
         myData,
