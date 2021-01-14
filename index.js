@@ -73,7 +73,7 @@ app.post('/types',async function (req, res) {
     await retailFact.pricesData(thePrice)
     retailFact.allData()
 
-    res.render('form')
+    res.render('/form')
 })
 
 app.post('/types2', function (req, res) {
@@ -159,7 +159,7 @@ app.get('/check_Your_Order', async function (req, res) {
     }
     
 
-    res.render('check_order', {
+    res.render('cart', {
         users: user.users,
         emails: user.email,
         contacts:user.contact,
