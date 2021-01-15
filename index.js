@@ -105,7 +105,7 @@ app.post('/form', async function (req, res) {
 
     await retailFact.finalData();
 
-    res.redirect('/success')
+    res.redirect('/check_Your_Order')
 })
 app.post('/search', async function (req, res) {
     theOrder = req.body.search
