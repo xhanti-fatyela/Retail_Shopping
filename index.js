@@ -68,16 +68,18 @@ app.post('/login', async function (req, res) {
 })
 
 
-app.post('/types',async function (req, res) {
+app.post('/types', function (req, res) {
     thePrice = req.body.price
-    await retailFact.pricesData(thePrice)
+    
+    retailFact.pricesData(thePrice)
     retailFact.allData()
-
+    
     res.redirect('/form')
 })
 
 app.post('/types2', function (req, res) {
     thePrice = req.body.price
+  
     retailFact.pricesData(thePrice)
     retailFact.allData()
 
@@ -94,36 +96,38 @@ app.post('/done', function (req, res) {
     res.redirect('/')
 })
 
-app.post('/form', async function (req, res) {
+app.post('/form',  function (req, res) {
     theMail = req.body.myMail
     theColour = req.body.colour
     theSize = req.body.size
     theUser = req.body.myUser
-    await retailFact.myData(theUser, theMail, theColour, theSize)
+    retailFact.myData(theUser, theMail, theColour, theSize)
     retailFact.getOrders()
-    await retailFact.allData()
-
-    await retailFact.finalData();
+    retailFact.allData()
+    retailFact.finalData();
 
     res.redirect('/check_Your_Order')
 })
-app.post('/search', async function (req, res) {
+app.post('/search',  function (req, res) {
     theOrder = req.body.search
-    list = await retailFact.finalData()
-    await retailFact.checkOrder(theOrder)
+    list =  retailFact.finalData()
+     retailFact.checkOrder()
 
     for (var i = 0; i < list.length; i++) {
         var userz = list[i]
     }
 
-    // if(userz.order_no !== theOrder){
-    //     res.redirect('/')
-    // }
-
-
 
     res.redirect('/check_Your_Order')
 })
+
+
+
+app.post('/checkout',  function (req, res) {
+    res.redirect('/success')
+})
+
+
 
 app.get('/Female_Section',async function (req, res) {
    
@@ -138,40 +142,38 @@ app.get('/Male_Section',async function (req, res) {
 
 
 app.get('/form', function (req, res) {
-
+   
+    
     res.render('form')
 })
 
 app.get('/success', async function (req, res) {
 
     list = await retailFact.finalData()
+    
+
+   // list = await retailFact.finalData()
+   
 
 
-    res.render('confirm', { orderz: list.orders })
+    res.render('confirm', { list })
 })
 
-app.get('/check_Your_Order', async function (req, res) {
-    list = await retailFact.lastFinal()
+app.get('/check_Your_Order',  function (req, res) {
+    list = retailFact.finalData()
 
     for (var i = 0; i < list.length; i++) {
         var user = list[i]
 
     }
     
-
-    res.render('cart', {
-        users: user.users,
-        emails: user.email,
-        contacts:user.contact,
-        colours:user.colour,
-        sizes:user.size,
-        prices:user.price,
-        costs:user.cost
+    
+    res.render('cart', {list
 
     })
 })
 
-var PORT = process.env.PORT || 5000
+var PORT = process.env.PORT || 4000
 
 app.listen(PORT, function () {
     console.log('server', PORT)

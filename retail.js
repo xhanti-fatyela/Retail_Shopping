@@ -33,60 +33,61 @@ module.exports = function myShop(pool) {
 
     }
 
-    async function pricesData(price) {
+     function pricesData(price) {
 
-        known2 = await pool.query('select * from sku')
+        known2 =  pool.query('select * from sku')
 
         getPrice = price
 
-        store = await pool.query('select * from sku WHERE shoes = $1', [getPrice])
+        store =  pool.query('select * from sku WHERE shoes = $1', [getPrice])
        
 
         if (getPrice === "/images/b.jpg") {
-            await pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
-            store = await pool.query('select stock from sku WHERE shoes = $1', [getPrice])
+             pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+            store =  pool.query('select stock from sku WHERE shoes = $1', [getPrice])
             getCost = 800
         }
         else if (getPrice === "/images/c.jpg") {
-            await pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
             getCost = 1200
         }
 
         else if (getPrice === "/images/d.jpg") {
-            await pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
             getCost = 700
         }
         else if (getPrice === "/images/e.jpg") {
-            await pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
             getCost = 1500
         }
 
         if (getPrice === "/images/5.jpg") {
-            await pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
             getCost = 900
         }
         else if (getPrice === "/images/2.jpg") {
-            await pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
             getCost = 1100
         }
 
         else if (getPrice === "/images/3.jpg") {
-            await pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
             getCost = 800
         }
         else if (getPrice === "/images/4.jpg") {
-            await pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
             getCost = 600
         }
-console.log(store.rows);
+//console.log(store.rows);
 
     }
 
     function getOrders() {
         getOrder = Math.floor(1000 + Math.random() * 9000);
+        return getOrder
     }
 
-    async function allData() {
+     function allData() {
 
         myObj = {
             users: getUser,
@@ -102,20 +103,20 @@ console.log(store.rows);
 
     }
 
-    async function finalData() {
-        await pool.query('insert into myRetails (users,email , colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7)', [myObj.users, myObj.mails, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost]);
-        return await myObj
+     function finalData() {
+         pool.query('insert into myRetails (users,email , colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7)', [myObj.users, myObj.mails, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost]);
+        return  myObj
     }
 
-    async function checkOrder(orderz) {
+     function checkOrder(orderz) {
         order_nos = orderz
 
-        known = await pool.query('SELECT * FROM myRetails')
+        known =  pool.query('SELECT * FROM myRetails')
 
 
         for (var i = 0; i < known.rows.length; i++) {
             var user = known.rows[i]
-            if (user.order_no == order_nos) {
+            if (user.price == order_nos) {
                 final.push(user)
             }
 
