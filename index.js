@@ -106,7 +106,7 @@ app.post('/form',  function (req, res) {
     retailFact.allData()
     retailFact.finalData();
     
-    res.redirect('/check_Your_Order')
+    res.redirect('/cart')
 })
 app.post('/search',  function (req, res) {
     theOrder = req.body.search
@@ -118,13 +118,13 @@ app.post('/search',  function (req, res) {
     }
 
 
-    res.redirect('/check_Your_Order')
+    res.redirect('/cart')
 })
 
 
 
 app.post('/checkout',  function (req, res) {
-    res.redirect('/success')
+    res.redirect('/Thank-You')
 })
 
 
@@ -147,7 +147,7 @@ app.get('/form', function (req, res) {
     res.render('form')
 })
 
-app.get('/success', async function (req, res) {
+app.get('/Thank-You', async function (req, res) {
 
     list = await retailFact.finalData()
     
@@ -159,7 +159,7 @@ app.get('/success', async function (req, res) {
     res.render('confirm', { list })
 })
 
-app.get('/check_Your_Order',  function (req, res) {
+app.get('/cart',  function (req, res) {
     list = retailFact.finalData()
 
     console.log(list);
