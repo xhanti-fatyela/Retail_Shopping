@@ -45,7 +45,7 @@ var getList;
 var lists;
 app.get('/', function (req, res) {
 
-    res.render('index')
+    res.render('index', {list})
 })
 
 

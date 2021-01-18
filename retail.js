@@ -70,26 +70,26 @@ module.exports = function myShop(pool) {
 
         if (getPrice === "/images/5.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
-             shoeNames =  'Mini Heels'
+             shoeNames =  'Rose Sandal'
              getGender = 'Female'
             getCost = 900
         }
         else if (getPrice === "/images/2.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
-             shoeNames =  'Rose Sandal'
+             shoeNames =  'Red High Heels'
              getGender = 'Female'
             getCost = 1100
         }
 
         else if (getPrice === "/images/3.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
-             shoeNames =  'Red High Heels'
+             shoeNames =  'Pink Sneaker'
              getGender = 'Female'
             getCost = 800
         }
         else if (getPrice === "/images/4.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
-             shoeNames =  'Pink Sneaker'
+             shoeNames =  'Mini Heels'
              getGender = 'Female'
             getCost = 600
         }
