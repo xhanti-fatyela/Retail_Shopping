@@ -12,7 +12,7 @@ module.exports = function myShop(pool) {
     var known;
     var known2;
     var getCost = 0;
-    var store;
+    var shoeNames;
 
     var getUser = '';
 
@@ -43,43 +43,63 @@ module.exports = function myShop(pool) {
        
 
         if (getPrice === "/images/b.jpg") {
-             pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
-            store =  pool.query('select stock from sku WHERE shoes = $1', [getPrice])
+            pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+            shoeNames =  'Urban Find'
+            getGender = 'Male'
             getCost = 800
         }
         else if (getPrice === "/images/c.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             shoeNames =  'HDKS Sneaker'
+             getGender = 'Male'
             getCost = 1200
         }
 
         else if (getPrice === "/images/d.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             shoeNames =  'Relay Shoe'
+             getGender = 'Male'
             getCost = 700
         }
         else if (getPrice === "/images/e.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             shoeNames =  'Sport Guyisa'
+             getGender = 'Male'
             getCost = 1500
         }
 
         if (getPrice === "/images/5.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             shoeNames =  'Mini Heels'
+             getGender = 'Female'
             getCost = 900
         }
         else if (getPrice === "/images/2.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             shoeNames =  'Rose Sandal'
+             getGender = 'Female'
             getCost = 1100
         }
 
         else if (getPrice === "/images/3.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             shoeNames =  'Red High Heels'
+             getGender = 'Female'
             getCost = 800
         }
         else if (getPrice === "/images/4.jpg") {
              pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
+             shoeNames =  'Pink Sneaker'
+             getGender = 'Female'
             getCost = 600
         }
+        
 //console.log(store.rows);
 
+    }
+
+    function getShoeName(){
+        return 
     }
 
     function getOrders() {
@@ -90,21 +110,19 @@ module.exports = function myShop(pool) {
      function allData() {
 
         myObj = {
-            users: getUser,
-            mails: getEmail,
-            colours: getColour,
+            name: shoeNames,
+            category: getGender,
             sizes: getSize,
+            colour: getColour,
             prices: getPrice,
-            orders: getOrder,
-            cost: getCost
+            id: getOrder,
+            cost: getCost,
+            quantity : 1
         }
-
-
-
     }
 
      function finalData() {
-         pool.query('insert into myRetails (users,email , colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7)', [myObj.users, myObj.mails, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost]);
+        pool.query('insert into myRetails (users,email , colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7)', [myObj.users, myObj.mails, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost]);
         return  myObj
     }
 
@@ -113,13 +131,11 @@ module.exports = function myShop(pool) {
 
         known =  pool.query('SELECT * FROM myRetails')
 
-
         for (var i = 0; i < known.rows.length; i++) {
             var user = known.rows[i]
             if (user.price == order_nos) {
                 final.push(user)
             }
-
         }
     }
 
@@ -192,6 +208,7 @@ module.exports = function myShop(pool) {
         checkOrder,
         getPicture,
         lastFinal,
-        myStock
+        myStock,
+        getShoeName
     }
 }

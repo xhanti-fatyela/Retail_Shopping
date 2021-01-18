@@ -68,12 +68,12 @@ app.post('/login', async function (req, res) {
 })
 
 
-app.post('/types', function (req, res) {
+app.post('/types',function (req, res) {
     thePrice = req.body.price
     
     retailFact.pricesData(thePrice)
     retailFact.allData()
-    
+    console.log(retailFact.getShoeName())
     res.redirect('/form')
 })
 
@@ -105,7 +105,7 @@ app.post('/form',  function (req, res) {
     retailFact.getOrders()
     retailFact.allData()
     retailFact.finalData();
-
+    
     res.redirect('/check_Your_Order')
 })
 app.post('/search',  function (req, res) {
@@ -152,7 +152,7 @@ app.get('/success', async function (req, res) {
     list = await retailFact.finalData()
     
 
-   // list = await retailFact.finalData()
+
    
 
 
@@ -162,10 +162,7 @@ app.get('/success', async function (req, res) {
 app.get('/check_Your_Order',  function (req, res) {
     list = retailFact.finalData()
 
-    for (var i = 0; i < list.length; i++) {
-        var user = list[i]
-
-    }
+    console.log(list);
     
     
     res.render('cart', {list
