@@ -37,6 +37,7 @@ var thePrice = '';
 var theUser;
 var theColour = '';
 var theSize = 0;
+var theQty = 0;
 var thegender = '';
 var theMail;
 var theOrder = 0;
@@ -107,10 +108,12 @@ app.post('/form',  function (req, res) {
     theColour = req.body.colour
     theSize = req.body.size
     theUser = req.body.myUser
-    retailFact.myData(theUser, theMail, theColour, theSize)
+    theQty = req.body.quantity
+    retailFact.myData(theUser, theMail, theColour, theSize,theQty )
     retailFact.getOrders()
     retailFact.allData()
     retailFact.finalData();
+    retailFact.getTotal(theQty, )
     
     res.redirect('/cart')
 })

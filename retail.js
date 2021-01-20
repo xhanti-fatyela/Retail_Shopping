@@ -3,6 +3,7 @@ module.exports = function myShop(pool) {
     var getOrder = '';
     var getColour = '';
     var getSize = 0;
+    var getQty = 0;
     var getGender = '';
     var getEmail = '';
     var getPrice = 0;
@@ -13,6 +14,7 @@ module.exports = function myShop(pool) {
     var known2;
     var getCost = 0;
     var shoeNames;
+    var total = 0;
 
     var getUser = '';
 
@@ -23,11 +25,12 @@ module.exports = function myShop(pool) {
 
     }
 
-    async function myData(user, emails, colour, size) {
+    async function myData(user, emails, colour, size, qty) {
         getEmail = emails
         getColour = colour
         getSize = size
         getUser = user
+        getQty = qty
 
 
 
@@ -119,15 +122,24 @@ else if (getPrice === "/images/g.jpg") {
     pool.query('UPDATE sku shoes SET stock = stock - 1 WHERE shoes = $1', [getPrice])
     shoeNames =  'Denim Jean'
     getGender = 'Male'
-   getCost = 450
+    getCost = 450
 }
         
 //console.log(store.rows);
 
     }
 
-    function getShoeName(){
-        return 
+    function getMyCost(){
+        return getCost
+    }
+
+    function getTotal(getQty, getCost){
+        total = 0
+      var  myQuantity = getQty
+      var  myCost = getCost
+      total = myQuantity*myCost
+
+      return total
     }
 
     function getOrders() {
@@ -145,12 +157,12 @@ else if (getPrice === "/images/g.jpg") {
             prices: getPrice,
             id: getOrder,
             cost: getCost,
-            quantity : 1
+            quantity : getQty
         }
     }
 
      function finalData() {
-        pool.query('insert into myRetails (users,email , colour, size, price, order_no,cost) values ($1,$2,$3,$4,$5,$6,$7)', [myObj.users, myObj.mails, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost]);
+        pool.query('insert into myRetails (users,email , colour, size, price, order_no,cost,quantity) values ($1,$2,$3,$4,$5,$6,$7,$8)', [myObj.users, myObj.mails, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost,myObj.quantity]);
         return  myObj
     }
 
@@ -237,6 +249,7 @@ else if (getPrice === "/images/g.jpg") {
         getPicture,
         lastFinal,
         myStock,
-        getShoeName
+        getTotal,
+        getMyCost
     }
 }
