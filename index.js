@@ -73,8 +73,14 @@ app.post('/types',function (req, res) {
     
     retailFact.pricesData(thePrice)
     retailFact.allData()
-    console.log(retailFact.getShoeName())
+    console.log(thePrice)
+
+    if(thePrice === "/images/f.jpg" || thePrice === "/images/g.jpg" || thePrice === "/images/6.jpg" || thePrice === "/images/7.jpg"){
+        res.redirect('form2')
+    }
+    else{
     res.redirect('/form')
+    }
 })
 
 app.post('/types2', function (req, res) {
@@ -147,13 +153,15 @@ app.get('/form', function (req, res) {
     res.render('form')
 })
 
+app.get('/form2', function (req, res) {
+   
+    
+    res.render('form2')
+})
+
 app.get('/Thank-You', async function (req, res) {
 
     list = await retailFact.finalData()
-    
-
-
-   
 
 
     res.render('confirm', { list })

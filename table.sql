@@ -25,3 +25,7 @@ insert into sku(shoes , shoeName,  stock) values('/images/2.jpg', 'Rose Sandal' 
 insert into sku(shoes , shoeName,  stock) values('/images/3.jpg', 'Red High Heels' , 131);
 insert into sku(shoes , shoeName,  stock) values('/images/4.jpg', 'Pink Sneaker' , 89);
 insert into sku(shoes , shoeName,  stock) values('/images/5.jpg', 'Mini Heels' , 120);
+insert into sku(shoes , shoeName,  stock) values('/images/6.jpg', 'Womens Blazer' , 120);
+insert into sku(shoes , shoeName,  stock) values('/images/7.jpg', 'Two Tone Denim' , 120);
+insert into sku(shoes , shoeName,  stock) values('/images/f.jpg', 'Denim Jacket' , 120);
+insert into sku(shoes , shoeName,  stock) values('/images/g.jpg', 'Denim Jean' , 120);
