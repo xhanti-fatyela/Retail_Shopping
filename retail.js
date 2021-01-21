@@ -15,6 +15,10 @@ module.exports = function myShop(pool) {
     var getCost = 0;
     var shoeNames;
     var total = 0;
+    var cart = {};
+    var finalCart = []
+    var storedArray;
+    var test;
 
     var getUser = '';
 
@@ -25,11 +29,11 @@ module.exports = function myShop(pool) {
 
     }
 
-    async function myData(user, emails, colour, size, qty) {
-        getEmail = emails
+     function myData(colour, size, qty) {
+     
         getColour = colour
         getSize = size
-        getUser = user
+      
         getQty = qty
 
 
@@ -130,17 +134,31 @@ else if (getPrice === "/images/g.jpg") {
     }
 
     function getMyCost(){
-        return getCost
+       return test
     }
 
     function getTotal(getQty, getCost){
-        total = 0
+      
       var  myQuantity = getQty
       var  myCost = getCost
       total = myQuantity*myCost
-
-      return total
+      
     }
+
+    function cartItems(myObj){
+       cart = myObj
+
+       finalCart.push(cart)
+
+    
+      
+       return finalCart
+    }
+
+    function cartItemsRemove(){
+
+        myObj = {}
+     }
 
     function getOrders() {
         getOrder = Math.floor(1000 + Math.random() * 9000);
@@ -157,12 +175,13 @@ else if (getPrice === "/images/g.jpg") {
             prices: getPrice,
             id: getOrder,
             cost: getCost,
-            quantity : getQty
+            quantity : Number(getQty),
+            myTotal : getQty*getCost
         }
     }
 
      function finalData() {
-        pool.query('insert into myRetails (users,email , colour, size, price, order_no,cost,quantity) values ($1,$2,$3,$4,$5,$6,$7,$8)', [myObj.users, myObj.mails, myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost,myObj.quantity]);
+        pool.query('insert into myRetails (colour, size, price, order_no,cost,quantity,total) values ($1,$2,$3,$4,$5,$6,$7)', [myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost,myObj.quantity, myObj.myTotal]);
         return  myObj
     }
 
@@ -250,6 +269,8 @@ else if (getPrice === "/images/g.jpg") {
         lastFinal,
         myStock,
         getTotal,
-        getMyCost
+        getMyCost,
+        cartItems,
+        cartItemsRemove
     }
 }

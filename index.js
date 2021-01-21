@@ -3,10 +3,14 @@ var app = express()
 const session = require('express-session');
 var bodyParser = require('body-parser')
 
+
 const pg = require("pg");
 const Pool = pg.Pool;
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:tailer44@localhost:5432/testdb';
+
+
+
+const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:Wattson@44@localhost:5432/testdb';
 
 const pool = new Pool({
     connectionString
@@ -44,7 +48,9 @@ var theOrder = 0;
 var list = [];
 var getList;
 var lists;
-app.get('/', function (req, res) {
+app.get('/',async function (req, res) {
+
+
 
     res.render('index', {list})
 })
@@ -74,15 +80,30 @@ app.post('/types',function (req, res) {
     
     retailFact.pricesData(thePrice)
     retailFact.allData()
-    console.log(thePrice)
+   
 
     if(thePrice === "/images/f.jpg" || thePrice === "/images/g.jpg" || thePrice === "/images/6.jpg" || thePrice === "/images/7.jpg"){
         res.redirect('form2')
     }
     else{
-    res.redirect('/form')
+    res.redirect('/product')
     }
 })
+
+// app.post('/addCart',function (req, res) {
+//     thePrice = req.body.price
+    
+//     retailFact.pricesData(thePrice)
+//     retailFact.allData()
+   
+
+//     if(thePrice === "/images/f.jpg" || thePrice === "/images/g.jpg" || thePrice === "/images/6.jpg" || thePrice === "/images/7.jpg"){
+//         res.redirect('form2')
+//     }
+//     else{
+//     res.redirect('/cart')
+//     }
+// })
 
 app.post('/types2', function (req, res) {
     thePrice = req.body.price
@@ -104,28 +125,27 @@ app.post('/done', function (req, res) {
 })
 
 app.post('/form',  function (req, res) {
-    theMail = req.body.myMail
+   
     theColour = req.body.colour
     theSize = req.body.size
-    theUser = req.body.myUser
+    
     theQty = req.body.quantity
-    retailFact.myData(theUser, theMail, theColour, theSize,theQty )
+    retailFact.myData(theColour, theSize,theQty )
     retailFact.getOrders()
     retailFact.allData()
-    retailFact.finalData();
-    retailFact.getTotal(theQty, )
+    list =  retailFact.finalData();
+    retailFact.getTotal(list.quantity, list.cost);
+
+    var list2 = retailFact.cartItems(list)
+    
+
     
     res.redirect('/cart')
 })
-app.post('/search',  function (req, res) {
-    theOrder = req.body.search
-    list =  retailFact.finalData()
-     retailFact.checkOrder()
-
-    for (var i = 0; i < list.length; i++) {
-        var userz = list[i]
-    }
-
+app.post('/remove',  function (req, res) {
+    retailFact.cartItemsRemove()
+    
+    retailFact.finalData();
 
     res.redirect('/cart')
 })
@@ -133,7 +153,7 @@ app.post('/search',  function (req, res) {
 
 
 app.post('/checkout',  function (req, res) {
-    res.redirect('/Thank-You')
+    res.redirect('/checkout')
 })
 
 
@@ -173,13 +193,40 @@ app.get('/Thank-You', async function (req, res) {
 app.get('/cart',  function (req, res) {
     list = retailFact.finalData()
 
-    console.log(list);
+   
+    var list2 = retailFact.cartItems(list)
+   // console.log(list2);
+    for(var i=0;i<list2.length;i++){
+        var user = list2[i].name
+    }
+            if(list.name === user){
+               console.log('good');
+        }
     
-    
+  
     res.render('cart', {list
 
     })
 })
+
+app.get('/checkout',  function (req, res) {
+    list = retailFact.finalData()
+
+    
+    
+    
+    res.render('checkout')
+})
+
+app.get('/product',  function (req, res) {
+    list = retailFact.finalData()
+
+  
+    
+    
+    res.render('product',{list})
+})
+
 
 var PORT = process.env.PORT || 4000
 
