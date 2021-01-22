@@ -19,6 +19,7 @@ module.exports = function myShop(pool) {
     var finalCart = []
     var storedArray;
     var test;
+    var getPayment;
 
     var getUser = '';
 
@@ -176,12 +177,13 @@ else if (getPrice === "/images/g.jpg") {
             id: getOrder,
             cost: getCost,
             quantity : Number(getQty),
-            myTotal : getQty*getCost
+            myTotal : getQty*getCost,
+            payment : getPayment
         }
     }
 
      function finalData() {
-        pool.query('insert into myRetails (colour, size, price, order_no,cost,quantity,total) values ($1,$2,$3,$4,$5,$6,$7)', [myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost,myObj.quantity, myObj.myTotal]);
+        pool.query('insert into myRetails (colour, size, price, order_no,cost,quantity,total) values ($1,$2,$3,$4,$5,$6,$7,$8)', [myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost,myObj.quantity, myObj.myTotal,myObj.payment]);
         return  myObj
     }
 
@@ -198,8 +200,9 @@ else if (getPrice === "/images/g.jpg") {
         }
     }
 
-    async function lastFinal() {
-        return await final
+     function lastFinal(payments) {
+         getPayment = payments
+        return getPayment
     }
 
     async function getPicture() {

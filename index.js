@@ -48,6 +48,7 @@ var theOrder = 0;
 var list = [];
 var getList;
 var lists;
+var thePayment;
 app.get('/',async function (req, res) {
 
 
@@ -150,13 +151,30 @@ app.post('/remove',  function (req, res) {
     res.redirect('/cart')
 })
 
+app.post('/finish',  function (req, res) {
+    retailFact.cartItemsRemove()
+    
+    
+
+    res.redirect('/')
+})
+
 
 
 app.post('/checkout',  function (req, res) {
     res.redirect('/checkout')
 })
 
+app.post('/toPayment',  function (req, res) {
+    res.redirect('/payment')
+})
 
+app.post('/payment',  function (req, res) {
+    thePayment = req.body.payments
+   retailFact.lastFinal(thePayment)
+    
+    res.redirect('/Thank-You')
+})
 
 app.get('/Female_Section',async function (req, res) {
    
@@ -186,7 +204,7 @@ app.get('/Thank-You', async function (req, res) {
 
     list = await retailFact.finalData()
 
-
+    console.log(list);
     res.render('confirm', { list })
 })
 
@@ -200,7 +218,7 @@ app.get('/cart',  function (req, res) {
         var user = list2[i].name
     }
             if(list.name === user){
-               console.log('good');
+              
         }
     
   
@@ -215,7 +233,7 @@ app.get('/checkout',  function (req, res) {
     
     
     
-    res.render('checkout')
+    res.render('checkout',{list})
 })
 
 app.get('/product',  function (req, res) {
@@ -225,6 +243,12 @@ app.get('/product',  function (req, res) {
     
     
     res.render('product',{list})
+})
+
+app.get('/payment',  function (req, res) {
+    list = retailFact.finalData()
+
+    res.render('payment',{list})
 })
 
 
