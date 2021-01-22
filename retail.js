@@ -183,7 +183,7 @@ else if (getPrice === "/images/g.jpg") {
     }
 
      function finalData() {
-        pool.query('insert into myRetails (colour, size, price, order_no,cost,quantity,total) values ($1,$2,$3,$4,$5,$6,$7,$8)', [myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost,myObj.quantity, myObj.myTotal,myObj.payment]);
+        pool.query('insert into myRetails (colour, size, price, order_no,cost,quantity,total, payment) values ($1,$2,$3,$4,$5,$6,$7,$8)', [myObj.colours, myObj.sizes, myObj.prices, myObj.orders, myObj.cost,myObj.quantity, myObj.myTotal,myObj.payment]);
         return  myObj
     }
 
