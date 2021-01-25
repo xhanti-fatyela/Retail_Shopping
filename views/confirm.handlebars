@@ -9,7 +9,7 @@ dataLayer.push({
       'actionField': {
         'id': '{{list.id}}',                         // Transaction ID. Required for purchases and refunds.
         'affiliation': 'Online Store',
-        'revenue': '{{list.cost}}',                     // Total transaction value (incl. tax and shipping)
+        'revenue': '{{list.myTotal}}',                     // Total transaction value (incl. tax and shipping)
         'tax':'0.00',
         'shipping': '0.00',
 		'payment' : '{{thePayment}}'
@@ -17,7 +17,7 @@ dataLayer.push({
       },
       'products': [{                            // List of productFieldObjects.
         'name': '{{list.name}}',
-        'price': '{{list.cost}}',
+        'price': '{{list.myTotal}}',
         'category': '{{list.category}}',
         'variant': '{{list.colour}}',
         'quantity': '{{list.quantity}}'                  // Optional fields may be omitted or set to empty string.
