@@ -148,7 +148,7 @@ app.post('/remove',  function (req, res) {
     
     retailFact.finalData();
 
-    res.redirect('/cart')
+    res.redirect('/')
 })
 
 app.post('/finish',  function (req, res) {
