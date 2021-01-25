@@ -1,20 +1,24 @@
 <head>
 	<script>
-		dataLayer.push({
-			'event': 'addToCart',
-			'ecommerce': {
-				'currencyCode': 'ZAR',
-				'add': {                                // 'add' actionFieldObject measures.
-					'products': [{                        //  adding a product to a shopping cart.
-						'name': '{{list.name}}',
-						'price': '{{list.myTotal}}',
-						'category': '{{list.category}}',
-						'variant': '{{list.colour}}',
-					'quantity': '{{list.quantity}}' 
-					}]
-				}
-			}
-		});
+
+		
+			dataLayer.push({
+				'event': 'checkout',
+				'ecommerce': {
+					'checkout': {
+						'actionField': { 'step': 1 },
+						'products': [{
+							'name': '{{list.name}}',
+							'price': '{{list.myTotal}}',
+							'category': '{{list.category}}',
+							'variant': '{{list.colour}}',
+							'quantity': '{{list.quantity}}'
+						}]
+					}
+				},
+				
+			});
+		
 
 	</script>
 

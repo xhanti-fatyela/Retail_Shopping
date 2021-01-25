@@ -1,7 +1,28 @@
 <head>
+	<script>
 
+		
+			dataLayer.push({
+				'event': 'checkout',
+				'ecommerce': {
+					'checkout': {
+						'actionField': { 'step': 2 },
+						'products': [{
+							'name': '{{list.name}}',
+							'price': '{{list.myTotal}}',
+							'category': '{{list.category}}',
+							'variant': '{{list.colour}}',
+							'quantity': '{{list.quantity}}'
+						}]
+					}
+				},
+				
+			});
+		
 
-  <title>Accel-Shopping | Checkout</title>
+	</script>
+
+  <title>Accel-Shopping | Cart Review</title>
 
   
 </head>

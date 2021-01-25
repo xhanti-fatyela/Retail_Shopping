@@ -136,7 +136,7 @@ app.post('/form',  function (req, res) {
 
     var list2 = retailFact.cartItems(list)
     
-
+console.log(list);
     
     res.redirect('/cart')
 })
@@ -243,9 +243,10 @@ app.get('/product',  function (req, res) {
 })
 
 app.get('/payment',  function (req, res) {
+    console.log(thePayment);
     list = retailFact.finalData()
 
-    res.render('payment',{list})
+    res.render('payment',{list,thePayment})
 })
 
 

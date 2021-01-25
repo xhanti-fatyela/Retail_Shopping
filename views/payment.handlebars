@@ -1,6 +1,5 @@
 <head>
 
-
   <title>Accel-Shopping | Payment</title>
 
 
@@ -79,7 +78,23 @@
 							<li>Total <span>R{{list.myTotal}}</span></li>
 						</ul>
 							
-	            <button type="submit" class="btn btn-primary" name="price" value="/images/b.jpg">Place Order</button>
+	            <button type="submit" class="btn btn-primary" name="price" value="/images/b.jpg" 
+				onclick="dataLayer.push({
+				'event': 'checkout',
+				'ecommerce': {
+					'checkout': {
+						'actionField': { 'step': 3, 'option': '{{thePayment}}'},
+						'products': [{
+							'name': '{{list.name}}',
+							'price': '{{list.myTotal}}',
+							'category': '{{list.category}}',
+							'variant': '{{list.colour}}',
+							'quantity': '{{list.quantity}}'
+						}]
+					}
+				},
+				
+			});">Place Order</button>
               </form>
 					</div>
 				</div>
