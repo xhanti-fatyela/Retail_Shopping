@@ -19,7 +19,7 @@ module.exports = function myShop(pool) {
     var finalCart = []
     var storedArray;
     var test;
-    var getPayment;
+    var getPayment = '';
 
     var getUser = '';
 
@@ -30,7 +30,7 @@ module.exports = function myShop(pool) {
 
     }
 
-     function myData(colour, size, qty) {
+     function myData(colour, size, qty,) {
      
         getColour = colour
         getSize = size
@@ -200,8 +200,8 @@ else if (getPrice === "/images/g.jpg") {
         }
     }
 
-     function lastFinal(payments) {
-         getPayment = payments
+     function lastFinal(payment) {
+         getPayment = payment
         return getPayment
     }
 

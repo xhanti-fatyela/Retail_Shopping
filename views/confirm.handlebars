@@ -12,14 +12,15 @@ dataLayer.push({
         'revenue': '{{list.cost}}',                     // Total transaction value (incl. tax and shipping)
         'tax':'0.00',
         'shipping': '0.00',
-        'coupon': ''
+		'payment' : '{{thePayment}}'
+        
       },
       'products': [{                            // List of productFieldObjects.
         'name': '{{list.name}}',
         'price': '{{list.cost}}',
         'category': '{{list.category}}',
         'variant': '{{list.colour}}',
-      'quantity': '{{list.quantity}}'                  // Optional fields may be omitted or set to empty string.
+        'quantity': '{{list.quantity}}'                  // Optional fields may be omitted or set to empty string.
        }]
     }
   }
@@ -98,7 +99,7 @@ dataLayer.push({
 							<li>Size <span>{{list.sizes}}</span></li>
 							<li>Colour <span>{{list.colour}}</span></li>
               	<li>Quantity <span>{{list.quantity}}</span></li>
-                <li>Payment Type <span>{{list.payment}}</span></li>
+                <li>Payment Type <span>{{thePayment}}</span></li>
 						</ul>
  <button type="submit" class="btn btn-primary" name="price" value="/images/b.jpg">Finish</button>
  </form>

@@ -48,7 +48,7 @@ var theOrder = 0;
 var list = [];
 var getList;
 var lists;
-var thePayment;
+var thePayment = '';
 app.get('/',async function (req, res) {
     list = retailFact.finalData()
 
@@ -81,14 +81,11 @@ app.post('/types',function (req, res) {
     
     retailFact.pricesData(thePrice)
     retailFact.allData()
-   
-
-    if(thePrice === "/images/f.jpg" || thePrice === "/images/g.jpg" || thePrice === "/images/6.jpg" || thePrice === "/images/7.jpg"){
-        res.redirect('form2')
-    }
-    else{
+    list =  retailFact.finalData();
+console.log(list);
+    
     res.redirect('/product')
-    }
+
 })
 
 // app.post('/addCart',function (req, res) {
@@ -170,9 +167,9 @@ app.post('/toPayment',  function (req, res) {
 })
 
 app.post('/payment',  function (req, res) {
-    thePayment = req.body.payments
+    thePayment = req.body.payment
    retailFact.lastFinal(thePayment)
-    
+    console.log(thePayment)
     res.redirect('/Thank-You')
 })
 
@@ -204,8 +201,8 @@ app.get('/Thank-You', async function (req, res) {
 
     list = await retailFact.finalData()
 
-    console.log(list);
-    res.render('confirm', { list })
+
+    res.render('confirm', { list,thePayment })
 })
 
 app.get('/cart',  function (req, res) {
