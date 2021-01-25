@@ -50,9 +50,9 @@ var getList;
 var lists;
 var thePayment;
 app.get('/',async function (req, res) {
+    list = retailFact.finalData()
 
-
-
+    console.log(list)
     res.render('index', {list})
 })
 

@@ -3,7 +3,7 @@
   <script>
 
 dataLayer.push({
-  'event': 'transaction',
+  'event': 'purchase',
   'ecommerce': {
     'purchase': {
       'actionField': {
@@ -19,7 +19,7 @@ dataLayer.push({
         'price': '{{list.cost}}',
         'category': '{{list.category}}',
         'variant': '{{list.colour}}',
-        'quantity': 1                            // Optional fields may be omitted or set to empty string.
+      'quantity': '{{list.quantity}}'                  // Optional fields may be omitted or set to empty string.
        }]
     }
   }
