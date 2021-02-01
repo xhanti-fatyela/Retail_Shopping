@@ -13,7 +13,7 @@
   "dependencies": {
     "all": "0.0.0",
     "analytics-datalayer": "^0.17.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
