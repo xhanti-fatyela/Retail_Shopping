@@ -1,30 +1,26 @@
 <head>
 	<script>
 
-		
-			dataLayer.push({
-				'event': 'checkout',
-				'ecommerce': {
-					'checkout': {
-						'actionField': { 'step': 2 },
-						'products': [{
-							'name': '{{list.name}}',
-							'price': '{{list.myTotal}}',
-							'category': '{{list.category}}',
-							'variant': '{{list.colour}}',
-							'quantity': '{{list.quantity}}'
-						}]
-					}
-				},
-				
-			});
-		
+        dataLayer.push({
+            'event': 'begin_checkout',
+            'ecommerce': {
+                'items': [{
+                    'item_name': '{{list.name}}', // Name or ID is required.
+                    'price': '{{list.myTotal}}',
+                    'item_category': '{{list.category}}',
+                    'item_variant': '{{list.colour}}',
+                    'quantity': '{{list.quantity}}'
+                }]
+            }
+        });
+    
+
 
 	</script>
 
-  <title>Accel-Shopping | Cart Review</title>
+	<title>Accel-Shopping | Cart Review</title>
 
-  
+
 </head>
 
 
@@ -47,7 +43,7 @@
 				<li class="nav-item"><a href="/Male_Section" class="nav-link">Male</a></li>
 				<li class="nav-item"><a href="/Female_Section" class="nav-link">Female</a></li>
 				<li><a href="/cart" class="nav-link"> Cart</a></li>
-				
+
 
 			</ul>
 		</div>
@@ -55,57 +51,59 @@
 </nav>
 
 <section id="cart_items">
-		<div class="container">
-			<div class="breadcrumbs">
-				<ol class="breadcrumb">
-				  <li><a href="#">Home</a></li>
-				  <li class="active">Check out</li>
-				</ol>
-			</div><!--/breadcrums-->
+	<div class="container">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li class="active">Check out</li>
+			</ol>
+		</div>
+		<!--/breadcrums-->
 
 
 
 
-			<div class="register-req">
-				<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
-			</div><!--/register-req-->
+		<div class="register-req">
+			<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
+		</div>
+		<!--/register-req-->
 
-			<div class="shopper-informations">
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="shopper-info">
-							<p>Shopper Information</p>
-							<form>
-								<input type="text" placeholder="Display Name">
-								<input type="text" placeholder="User Name">
-							</form>
-
-						</div>
-					</div>
-					<div class="col-sm-5 clearfix">
+		<div class="shopper-informations">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="shopper-info">
+						<p>Shopper Information</p>
+						<form>
+							<input type="text" placeholder="Display Name">
+							<input type="text" placeholder="User Name">
+						</form>
 
 					</div>
-					
 				</div>
-			</div>
-			<div class="review-payment">
-				<h2>Review & Payment</h2>
-			</div>
+				<div class="col-sm-5 clearfix">
 
-			<div class="table-responsive cart_info">
-				<table class="table table-condensed">
-					<thead>
-						<tr class="cart_menu">
-							<td class="image">Item</td>
-							<td class="description"></td>
-							<td class="price">Price</td>
-							<td class="price">Quantity</td>
-							<td class="total">Total</td>
+				</div>
 
-							<td></td>
-						</tr>
-					</thead>
-					<tbody>
+			</div>
+		</div>
+		<div class="review-payment">
+			<h2>Review & Payment</h2>
+		</div>
+
+		<div class="table-responsive cart_info">
+			<table class="table table-condensed">
+				<thead>
+					<tr class="cart_menu">
+						<td class="image">Item</td>
+						<td class="description"></td>
+						<td class="price">Price</td>
+						<td class="price">Quantity</td>
+						<td class="total">Total</td>
+
+						<td></td>
+					</tr>
+				</thead>
+				<tbody>
 					<form action="toPayment" method="post">
 						<tr>
 							<td class="cart_product">
@@ -113,7 +111,7 @@
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{list.name}}</a></h4>
-								
+
 							</td>
 							<td class="cart_price">
 								<p>R{{list.cost}}</p>
@@ -124,15 +122,14 @@
 							<td class="cart_total">
 								<p class="cart_total_price">{{list.myTotal}}</p>
 							</td>
-		
+
 						</tr>
-					</tbody>
-				</table>
-				          <button type="submit" class="btn btn-primary" name="price" value="/images/b.jpg">Procceed to Payment</button>
-			</div>
-</form>
+				</tbody>
+			</table>
+			<button type="submit" class="btn btn-primary" name="price" value="/images/b.jpg">Procceed to
+				Payment</button>
 		</div>
-	</section> <!--/#cart_items-->
-
-	
-
+		</form>
+	</div>
+</section>
+<!--/#cart_items-->

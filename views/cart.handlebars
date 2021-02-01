@@ -1,24 +1,20 @@
 <head>
 	<script>
 
-		
-			dataLayer.push({
-				'event': 'checkout',
-				'ecommerce': {
-					'checkout': {
-						'actionField': { 'step': 1 },
-						'products': [{
-							'name': '{{list.name}}',
-							'price': '{{list.myTotal}}',
-							'category': '{{list.category}}',
-							'variant': '{{list.colour}}',
-							'quantity': '{{list.quantity}}'
-						}]
-					}
-				},
-				
-			});
-		
+
+		dataLayer.push({
+			'event': 'add_to_cart',
+			'ecommerce': {
+				'items': [{
+					'item_name': '{{list.name}}',
+					'price': '{{list.cost}}',
+					'item_category': '{{list.category}}',
+					'item_variant': '{{list.colour}}',
+					'quantity': '{{list.quantity}}'
+				}]
+			}
+		});
+
 
 	</script>
 
@@ -100,17 +96,15 @@
 							</td>
 							<td class="cart_total">
 								<button type="submit" class="btn btn-primary" onclick="dataLayer.push({
-  'event': 'removeFromCart',
+  'event': 'remove_from_cart',
   'ecommerce': {
-    'remove': {                               // 'remove' actionFieldObject measures.
-					'products': [{                        //  adding a product to a shopping cart.
-						'name': '{{list.name}}',
-						'price': '{{list.cost}}',
-						'category': '{{list.category}}',
-						'variant': '{{list.colour}}',
-						'quantity': '{{list.quantity}}'
-					}]
-    }
+    'items': [{
+      'item_name': '{{list.name}}', // Name or ID is required.
+      'price': '{{list.cost}}',
+      'item_category': '{{list.category}}',
+      'item_variant': '{{list.colour}}',
+      'quantity': '{{list.quantity}}'
+    }]
   }
 });">Remove</button>
 							</td>

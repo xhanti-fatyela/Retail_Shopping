@@ -1,28 +1,19 @@
 <head>
 	<script>
 
-
-
-
-		// Measure a view of product details. This example assumes the detail view occurs on pageload,
-		// and also tracks a standard pageview of the details page.
 		dataLayer.push({
-			'event': 'productView',
+			'event': 'view_item',
 			'ecommerce': {
-				'detail': {
-					'products': [{                            // List of productFieldObjects.
-						'name': '{{list.name}}',
+				'items': [
+					{
+						'item_name': '{{list.name}}',       // Name or ID is required.
 						'price': '{{list.cost}}',
-						// Optional fields may be omitted or set to empty string.
 					}]
-				}
 			}
 		});
 	</script>
 
 	<title>Accel-Shopping | Product/{{list.name}}</title>
-
-
 
 </head>
 
@@ -269,21 +260,7 @@
 
 									<div style="padding-top: 1em;">
 										<button type="submit" class="btn btn-primary" id="sub" 
-										onclick="dataLayer.push({
-																'event': 'addToCart',
-																'ecommerce': {
-																'currencyCode': 'ZAR',
-																'add': {                               
-																	'products': [{                     
-																		'name': '{{list.name}}',
-																		'price': '{{list.myTotal}}',
-																		'category': '{{list.category}}',
-																		'variant': '{{list.colour}}',
-																		'quantity': '{{list.quantity}}' 
-							}]
-				}
-			}
-		});">Add To Cart</button>
+										onclick="">Add To Cart</button>
 									</div>
 								</form>
 

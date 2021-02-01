@@ -1,3 +1,4 @@
+
 var express = require('express')
 var app = express()
 const session = require('express-session');
@@ -226,8 +227,6 @@ app.get('/cart',  function (req, res) {
 
 app.get('/checkout',  function (req, res) {
     list = retailFact.finalData()
-
-    
     
     
     res.render('checkout',{list})

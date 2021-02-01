@@ -1,5 +1,6 @@
-module.exports = function myShop(pool) {
 
+module.exports = function myShop(pool) {
+    
     var getOrder = '';
     var getColour = '';
     var getSize = 0;
@@ -226,6 +227,10 @@ else if (getPrice === "/images/g.jpg") {
     }
 
 
+
+        
+
+
     // async function myBask(price, cost) {
     //     checking = false
     //     for (var j = 0; j < theShoes.length; j++) {
@@ -274,6 +279,8 @@ else if (getPrice === "/images/g.jpg") {
         getTotal,
         getMyCost,
         cartItems,
-        cartItemsRemove
+        cartItemsRemove,
+        
+        
     }
 }
