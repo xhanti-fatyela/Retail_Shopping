@@ -8,14 +8,14 @@ dataLayer.push({
     'purchase': {
       'transaction_id': '{{list.id}}',
       'affiliation': 'Online Store',
-      'value': '{{list.cost}}',
+      'value': '{{list.myTotal}}',
       'tax': '0',
       'shipping': '0',
 	  'payment' : '{{thePayment}}',
       'currency': 'ZAR',
       'items': [{
         'item_name': '{{list.name}}',
-        'price': '{{list.cost}}',
+        'price': '{{list.myTotal}}',
         'item_category': '{{list.category}}',
         'item_variant': '{{list.colour}}',
         'quantity': '{{list.quantity}}'
