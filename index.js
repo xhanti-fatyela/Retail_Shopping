@@ -235,7 +235,7 @@ app.get('/checkout',  function (req, res) {
 app.get('/product',  function (req, res) {
     list = retailFact.finalData()
 
-  
+  console.log(list);
     
     
     res.render('product',{list})
