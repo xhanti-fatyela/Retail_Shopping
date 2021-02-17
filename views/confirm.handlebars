@@ -30,7 +30,9 @@ dataLayer.push({
   
 </head>
 
-
+  <script>
+    fbq('track', 'Purchase', {currency: "ZAR", value: {{list.myTotal}}});
+  </script>
 
 
 
