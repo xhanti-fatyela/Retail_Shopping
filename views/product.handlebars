@@ -1,10 +1,10 @@
 <head>
 	<script>
 
-		dataLayer.push({
+		dataLayer.push(
 			'event': 'view_item',
 			
-				'items': [
+				[
 					{
 						'item_name': '{{list.name}}',       // Name or ID is required.
 						'price': '{{list.cost}}',
@@ -12,7 +12,7 @@
 					}]
 			
 			
-		});
+		);
 	</script>
 
 	<title>Accel-Shopping | Product/{{list.name}}</title>
