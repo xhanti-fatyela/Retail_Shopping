@@ -1,28 +1,6 @@
 <head>
-	<script>
-
-
-		dataLayer.push({
-			'event': 'add_to_cart',
-			'ecommerce': {
-				'items': [{
-					'item_name': '{{list.name}}',
-					'price': '{{list.cost}}',
-					'item_category': '{{list.category}}',
-					'item_variant': '{{list.colour}}',
-					'quantity': '{{list.quantity}}'
-				}]
-			}
-		});
-
-
-	</script>
 
 	<title>Accel-Shopping | Shopping-Cart</title>
-
-
-
-
 
 </head>
 
@@ -95,18 +73,7 @@
 								<p class="cart_total_price">{{list.myTotal}}</p>
 							</td>
 							<td class="cart_total">
-								<button type="submit" class="btn btn-primary" onclick="dataLayer.push({
-  'event': 'remove_from_cart',
-  'ecommerce': {
-    'items': [{
-      'item_name': '{{list.name}}', // Name or ID is required.
-      'price': '{{list.cost}}',
-      'item_category': '{{list.category}}',
-      'item_variant': '{{list.colour}}',
-      'quantity': '{{list.quantity}}'
-    }]
-  }
-});">Remove</button>
+								<button type="submit" class="btn btn-primary">Remove</button>
 							</td>
 					</form>
 					</tr>
@@ -145,4 +112,3 @@
 	</div>
 	</div>
 </section>
-<!--/#do_action-->
