@@ -1,5 +1,27 @@
 <head>
+   	<script>
+        dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  'event': 'view_item_list',
+  'ecommerce': {
+    'items': [
+     {
+       'item_name': 'Urban Find',       
+       'item_id': '12345',
+       'price': '800',
+       'item_brand': 'Acne',
+       'item_category': 'Mens',
+       'item_category2': 'Shoes',
+       'item_variant': 'Black',
+       'item_list_id': 'SR123',
+       'index': 1,
+       'quantity': '1'
+	 }]
+  }
+     });
 
+	 
+	</script>
 	<title>Accel-Shopping | Product/{{list.name}}</title>
 
 </head>
